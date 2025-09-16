@@ -2,8 +2,9 @@
     {
         "email": "user@example.com",
         "password": "1234",
-        "username": "John Doe",
-        "id": "user123"
+        "username": "moaz",
+        "id": "user123",
+        "profile_image": "1757979982_falloutboy.jpg"
     },
     {
         "username": "grwgb3g3g",
@@ -12,9 +13,27 @@
         "id": "dvqevr34"
     },
     {
-        "username": "moazaahmed",
-        "email": "moaz@gmail.com",
+        "username": "moazaahmededitedname",
+        "email": "moazeditedmail@gmail.com",
         "password": "123456",
         "id": "i_hate_cpp"
+    },
+    {
+        "username": "dqwdqwd",
+        "email": "dqwdqwd@mamdmasd.dasdasd",
+        "password": "dedqqnx9q",
+        "id": "cacqq2"
+    },
+    {
+        "username": "ACcq",
+        "email": "casccAC@fefewf.asca",
+        "password": "afwfwefef",
+        "id": "wefwaef"
+    },
+    {
+        "username": "moaz",
+        "email": "moaz@gmail.com",
+        "password": "01063180",
+        "id": "mcscqwqewc"
     }
 ]

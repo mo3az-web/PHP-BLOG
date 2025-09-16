@@ -1,26 +1,11 @@
 [
     {
         "id": 1,
-        "title": "im moaz",
-        "content": "moaz",
+        "title": "this the title for my text only post",
+        "content": "this is the content for my very very great",
         "author": "John Doe",
         "user_id": "user123",
-        "date": "2025-09-11 18:06:42"
-    },
-    {
-        "id": 2,
-        "title": "\u0628\u062d\u0628 \u0627\u0644\u0645\u0627\u0646\u062c\u0627 ",
-        "content": "\u0628\u062d\u0628 \u0627\u0644\u0645\u0627\u0646\u062c\u0627 ",
-        "author": "John Doe",
-        "user_id": "user123",
-        "date": "2025-09-11 18:09:05"
-    },
-    {
-        "id": 3,
-        "title": "this is a title in my post ",
-        "content": "this is a very great and special content in my post ",
-        "author": "moazaahmed",
-        "user_id": "i_hate_cpp",
-        "date": "2025-09-13 00:48:57"
+        "image": null,
+        "date": "2025-09-16 09:46:43"
     }
 ]

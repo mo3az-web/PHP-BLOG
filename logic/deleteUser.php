@@ -43,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['id'])) {
 $redirect = 'index.php';
 header("Location: " . $redirect);
 exit;
+?>

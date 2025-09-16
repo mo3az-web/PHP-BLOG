@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once '../Includes/jsonUtils.php';
 // here we include the login logic to handle form submission
-require_once './login.php';
+require_once '../logic/login.php';
 
 ?>
 <!doctype html>
