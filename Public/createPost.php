@@ -66,7 +66,7 @@ include __DIR__ . '/../logic/PostingLogic.php';
           <?php if (!empty($post['image'])): ?>
             <?php 
             // تحديد المسار الصحيح للصورة
-            $imagePath = "../uploads/" . htmlspecialchars($post['image']);
+            $imagePath = "uploads/" . htmlspecialchars($post['image']);
             ?>
             <div class="mb-3">
               <img src="<?= $imagePath ?>" class="post-image img-fluid" alt="Post Image" 

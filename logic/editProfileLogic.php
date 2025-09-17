@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // handle profile image upload
     if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === 0) {
-        $targetDir = __DIR__ . '/../uploads/';
+        $targetDir = __DIR__ . '/../public/uploads/';
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
         }
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 if (!empty($currentUser ['profile_image'])) {
         // delete old image file if exists
-        $oldImage = __DIR__ . '/../uploads/' . $currentUser['profile_image'];
+        $oldImage = __DIR__ . '/../public/uploads/' . $currentUser['profile_image'];
         if (file_exists($oldImage)) {
             unlink($oldImage);
         }
@@ -72,7 +72,7 @@ if (!empty($currentUser ['profile_image'])) {
 
 // determine profile image
 $profileImage = $currentUser['profile_image'] ?? null;
-$imagePath = ($profileImage && file_exists(__DIR__ . '/../uploads/' . $profileImage)) 
+$imagePath = ($profileImage && file_exists(__DIR__ . '/../public/uploads/' . $profileImage)) 
              ? "../uploads/$profileImage" 
              : "https://via.placeholder.com/100/cccccc/ffffff?text=👤";
 ?>

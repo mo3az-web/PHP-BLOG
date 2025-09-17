@@ -51,9 +51,9 @@ usort($posts, function($a, $b) {
           <p class="card-text"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
 
           <?php if (!empty($post['image'])): ?>
-            <?php $imagePath = __DIR__ . '/../uploads/' . htmlspecialchars($post['image']); ?>
+            <?php $imagePath = __DIR__ . './uploads/' . htmlspecialchars($post['image']); ?>
             <div class="mb-3">
-              <img src="<?= "../uploads/" . htmlspecialchars($post['image']) ?>" 
+              <img src="<?= "./uploads/" . htmlspecialchars($post['image']) ?>" 
                    class="post-image img-fluid" 
                    alt="Post Image"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">

@@ -3,45 +3,51 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 include __DIR__ . '/../Includes/header.php'; 
-$postsFile = __DIR__ . '/../Data/posts.json';
-$uploadDir = __DIR__ . '/../uploads/';
 
-// make sure posts file exists for security purposes
+$postsFile = __DIR__ . '/../Data/posts.json';
+
+// Real folder path on the server (for storing images)
+$uploadDir = __DIR__ . '/../public/uploads/';
+// Browser-accessible path (for displaying images)
+$uploadUrl = 'uploads/';
+
+// Make sure posts file exists
 if (!file_exists($postsFile)) {
     file_put_contents($postsFile, json_encode([]));
 }
 
-// read existing posts
+// Read existing posts
 $posts = json_decode(file_get_contents($postsFile), true);
 
-// upload image if exists
+// Handle image upload
 $image = null;
 if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-    // validate image type and size 
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
     $fileType = $_FILES['image']['type'];
-     // check if the uploaded file type is allowed
+
     if (!in_array($fileType, $allowedTypes)) {
-        echo "<div class='alert alert-danger'> this file is not supported please upload it in JPG, PNG, GIF or WebP formats </div>";
+        echo "<div class='alert alert-danger'>Unsupported file type. Please upload JPG, PNG, GIF, or WebP.</div>";
     } else {
+        // Create upload folder if it does not exist
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
-   
+
+        // Generate unique file name
         $imageName = time() . "_" . basename($_FILES['image']['name']);
         $targetFile = $uploadDir . $imageName;
 
+        // Move uploaded file to uploads directory
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
-            $image = $imageName;
+            $image = $imageName; // Store only the file name in JSON
         } else {
-            echo "<div class='alert alert-danger'>failed to upload the picture check  </div>";
+            echo "<div class='alert alert-danger'>Failed to upload the image.</div>";
         }
     }
 }
 
-// add new post if form submitted to the json files 
+// Add new post
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title']) && isset($_SESSION['id'])) {
     $newPost = [
         "id" => count($posts) ? end($posts)['id'] + 1 : 1,

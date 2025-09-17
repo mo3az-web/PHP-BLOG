@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id']) && isset
     
     // Delete associated image file if it exists
     if ($imageName) {
-        $imagePath = __DIR__ . "/../uploads/" . $imageName;
+        $imagePath = __DIR__ . "/../public/uploads/" . $imageName;
         if (file_exists($imagePath)) {
             if (unlink($imagePath)) {
                 // Image deleted successfully
